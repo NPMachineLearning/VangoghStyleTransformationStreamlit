@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "name": "中文"
+  },
+  "data": {
+    "title": "梵谷風格轉換",
+    "desc": "將照片轉換成梵谷風格",
+    "select_language": "語言",
+    "select_image": "選擇照片",
+    "transform": "風格轉換",
+    "original_image": "原始照片",
+    "vangogh_image": "梵谷風格"
+  }
+}

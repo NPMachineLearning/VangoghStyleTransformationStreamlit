@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "name": "English"
+  },
+  "data": {
+    "title": "Vangogh Style Transformation",
+    "desc": "Transform an image style to Vangogh",
+    "select_language": "Language",
+    "select_image": "Select Image",
+    "transform": "Transform Style",
+    "original_image": "Original Image",
+    "vangogh_image": "Vangogh Image"
+  }
+}

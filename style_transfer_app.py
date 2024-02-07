@@ -17,7 +17,9 @@ def on_lang_change():
 @st.cache_resource
 def load_wrapper():
   pb = STProgressBar("Downloading model please wait ...!!")
-  wrapper = ModelWrapper(pb, download_complete=lambda : st.rerun())
+  wrapper = ModelWrapper(st.secrets["model_url"], 
+                         pb, 
+                         download_complete=lambda : st.rerun())
   return wrapper
 
 def load_localization():

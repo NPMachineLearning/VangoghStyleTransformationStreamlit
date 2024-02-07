@@ -18,19 +18,18 @@ class STProgressBar():
     if self.progressbar:
       self.progressbar.progress(value=progress, text=self.text)
 
-MODEL_URL = "https://storage.googleapis.com/np-machine-learning-models/tf2/gan/photo2vangogh_gen_f.h5"
 FILE_PATH = "./gen_f.h5"
 
 class ModelWrapper:
-  def __init__(self, download_progress:STProgressBar=None, download_complete=None):
+  def __init__(self, model_url, download_progress:STProgressBar=None, download_complete=None):
     self.image_size = (256,256)
     self.custom_objects={"CycleGAN>InstanceNormalization":InstanceNormalization}
     if not os.path.exists(FILE_PATH):
       if download_progress is not None:
-        urllib.request.urlretrieve(MODEL_URL, FILE_PATH, 
+        urllib.request.urlretrieve(model_url, FILE_PATH, 
                                    reporthook=download_progress)
       else:
-        urllib.request.urlretrieve(MODEL_URL, FILE_PATH)
+        urllib.request.urlretrieve(model_url, FILE_PATH)
       if download_complete is not None:
         download_complete()
     self.model = tf.keras.models.load_model(FILE_PATH,

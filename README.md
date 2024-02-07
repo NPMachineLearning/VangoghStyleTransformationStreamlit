@@ -5,7 +5,7 @@ can automatically transform a image into Vangogh style.
 
 ## Deep learning model
 
-The model is hosted on cloud storage [here](https://console.cloud.google.com/storage/browser?project=ml-models-413605&prefix=&forceOnBucketsSortingFiltering=true). **Only me can access**
+The model is hosted on cloud storage [here](https://console.cloud.google.com/storage/browser?project=ml-models-413605&prefix=&forceOnBucketsSortingFiltering=true). **Only me can access to edit permission**.
 
 ## Local development
 

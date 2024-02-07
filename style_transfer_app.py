@@ -1,8 +1,9 @@
+from typing import Any
 import streamlit as st
 from PIL import Image
 import io
 from Localization import Localization
-from model_wrapper import ModelWrapper
+from model_wrapper import ModelWrapper, STProgressBar
 
 st.set_page_config(page_title="Style Transformation",
                     page_icon="title_icon.jpg")
@@ -15,7 +16,8 @@ def on_lang_change():
 
 @st.cache_resource
 def load_wrapper():
-  wrapper = ModelWrapper("gen_f.h5")
+  pb = STProgressBar("Downloading model please wait ...!!")
+  wrapper = ModelWrapper(pb, download_complete=lambda : st.rerun())
   return wrapper
 
 def load_localization():

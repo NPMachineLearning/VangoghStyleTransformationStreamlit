@@ -1,12 +1,39 @@
 import tensorflow as tf
 from PIL import Image
 from instance_norm import InstanceNormalization
+import urllib.request
+import os
+import streamlit as st
+import numpy as np
+
+class STProgressBar():
+  def __init__(self, text=""):
+    self.text = text
+    self.progressbar = None
+  def __call__(self, block_num, block_size, total_size):
+    progress = block_num * block_size / total_size
+    progress = np.clip(progress, 0.0, 1.0)
+    if self.progressbar is None:
+      self.progressbar = st.progress(value=0.0, text=self.text)
+    if self.progressbar:
+      self.progressbar.progress(value=progress, text=self.text)
+
+MODEL_URL = "https://storage.googleapis.com/np-machine-learning-models/tf2/gan/photo2vangogh_gen_f.h5"
+FILE_PATH = "./gen_f.h5"
 
 class ModelWrapper:
-  def __init__(self, model_path):
+  def __init__(self, download_progress:STProgressBar=None, download_complete=None):
     self.image_size = (256,256)
     self.custom_objects={"CycleGAN>InstanceNormalization":InstanceNormalization}
-    self.model = tf.keras.models.load_model(model_path,
+    if not os.path.exists(FILE_PATH):
+      if download_progress is not None:
+        urllib.request.urlretrieve(MODEL_URL, FILE_PATH, 
+                                   reporthook=download_progress)
+      else:
+        urllib.request.urlretrieve(MODEL_URL, FILE_PATH)
+      if download_complete is not None:
+        download_complete()
+    self.model = tf.keras.models.load_model(FILE_PATH,
                                             custom_objects=self.custom_objects,
                                             compile=False)
   

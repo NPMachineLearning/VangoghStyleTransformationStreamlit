@@ -5,12 +5,13 @@ can automatically transform a image into Vangogh style.
 
 ## Deep learning model
 
-The model is hosted on cloud storage [here](https://console.cloud.google.com/storage/browser?project=ml-models-413605&prefix=&forceOnBucketsSortingFiltering=true). **Only me can access to edit permission**.
+The model is hosted on cloud storage [here](https://console.cloud.google.com/storage/browser?project=ml-models-413605&prefix=&forceOnBucketsSortingFiltering=true). **Only me can access to edit permission**. The public URL to the model file is in cloud
+storage.
 
 ## Local development
 
 1. Open terminal and cd to this directory
-2. Add `screts.toml` to project follow [here](https://blog.streamlit.io/secrets-in-sharing-apps/)
+2. Add `secrets.toml` to project follow [here](https://blog.streamlit.io/secrets-in-sharing-apps/)
 3. Edit `screts.toml` by add key and value like below
    `model_url = "[to_model_file_url_in_server]"`
 4. Create python environment `python -m .venv .\`

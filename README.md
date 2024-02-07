@@ -14,8 +14,8 @@ storage.
 2. Add `secrets.toml` to project follow [here](https://blog.streamlit.io/secrets-in-sharing-apps/)
 3. Edit `screts.toml` by add key and value like below
    `model_url = "[to_model_file_url_in_server]"`
-4. Create python environment `python -m .venv .\`
-5. Activate environment `venv\scripts\activate`
+4. Create python environment `python -m venv ./.venv`
+5. Activate environment `.venv/scripts/activate`
 6. Install dependencies `pip install tensorflow streamlit pipreqs`
 7. Start streamlit `streamlit run style_transfer_app.py`
 
@@ -25,8 +25,8 @@ storage.
 2. Add secrets to for delopyed project follow [here](https://blog.streamlit.io/secrets-in-sharing-apps/)
 3. Edit secrets by add key and value like below
    `model_url = "[to_model_file_url_in_server]"`
-4. Create python environment `python -m .venv .\` if not
-5. Activate environment `venv\scripts\activate`
+4. Create python environment `python -m venv ./.venv` if not
+5. Activate environment `.venv/scripts/activate`
 6. Install dependencies `pip install tensorflow streamlit pipreqs`
 7. Make sure streamlit app is working `streamlit run style_transfer_app.py`
 8. add requirements.txt file and edit as following

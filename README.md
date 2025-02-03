@@ -54,7 +54,8 @@ Make sure you have done this **Setup info for connecting GCS** step
 Make sure you have done this **Setup info for connecting GCS** step
 
 - Follow **Local development** step
-- add requirements.txt file and edit as following
+- Run command `pipreqs --force .`
+- Edit **requirements.txt** as following
 
 ```
 tensorflow_cpu==2.14.0

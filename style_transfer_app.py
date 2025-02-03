@@ -3,7 +3,7 @@ import streamlit as st
 from PIL import Image
 import io
 from Localization import Localization
-from model_wrapper import ModelWrapper, STProgressBar
+from model_wrapper import ModelWrapper
 
 st.set_page_config(page_title="Style Transformation",
                     page_icon="title_icon.jpg")
@@ -14,12 +14,11 @@ if "current_lang" not in st.session_state:
 def on_lang_change():
   st.session_state.current_lang = st.session_state.selected_lang
 
-@st.cache_resource
+@st.cache_resource(show_spinner="Preparing model might take a while...")
 def load_wrapper():
-  pb = STProgressBar("Downloading model please wait ...!!")
-  wrapper = ModelWrapper(st.secrets["model_url"], 
-                         pb, 
-                         download_complete=lambda : st.rerun())
+  wrapper = ModelWrapper()
+  wrapper.download_model()
+  wrapper.load_model()
   return wrapper
 
 def load_localization():
